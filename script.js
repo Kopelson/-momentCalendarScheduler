@@ -1,13 +1,15 @@
 //JQuery will run this function on window load
 $(document).ready(function() {
+    //This function gets current day and formats it and adds it to the p tag in the header
     getCurrentDay();
+    //This creates time blocks for the day 9:00am to 5:00pm
     createTimeBlocks();
-    //change the style of each time block according to what time it is
+    //THis changes the style of each time block according to what time it is
     updateTimeBlocks();
     //fill in each time block with local storage data
 
     //save each hour time block data to local storage
-    
+    $("button").on("click", saveData);
 
 })
 
@@ -72,20 +74,33 @@ function updateTimeBlocks(){
         let checkTime = moment(time).isBefore();
         //this variable stores a boolean value that checks if the time block is between the hour time blocks
         let currentTime = moment().isBetween(time, time2); 
-        //this if/else statements adds the logic is the time block in the past, present, or future.
+        //this checks if the time is before the current time and not in between the current block hours
         if(checkTime && !currentTime){
             //jquery addClass adds a new class "past" to the textSpan
             $(this).addClass("past");
+            //this checks if the current time is between the block hours
         } else if (currentTime) {
             //jquery addClass adds a new class "present" to the textSpan
             $(this).addClass("present");
-        } 
-        else {
+            //this runs if the current time is in the future
+        } else {
             //jquery addClass adds a new class "future" to the textSpan
             $(this).addClass("future");
-        }
-       
-    })
+        };
+    });
+};
 
-};    
+function saveData(event) {
+    event.preventDefault();
+    //console.log($(this).parent().text());
+    time = $(this).parent().text();
+    
+    textarea = $(this).parent().find($("textarea"));
+    //console.log(event.target.parentElement.children[1].children[0].value)
+    //textarea = event.target.parentElement.children[1].children[0].value;
+    //textareaIcon = event.target.parentElement.parentElement.children[1].children[0].value;
+    console.log("You clicked the button")
+    // if(event.target)
+    // let storeData = localStorage.setItem("textarea", textarea)
+}
 
