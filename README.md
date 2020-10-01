@@ -1,8 +1,10 @@
 # Moment.js Daily Scheduler
 
-
 ## Description
-
+<p>This is a simple calender application that allows users to save events for each hour of the day.
+ This app features a dynamically updated HTML and CSS powered by JQuery and uses Moment.js library to 
+ work with date and time within the application. Note that this is a daily scheduler that will need to be 
+ updated daily to be effective.</p>  
 
 ## Table of Contents
 
@@ -12,6 +14,8 @@
 * [License](#license)
 
 ## Overview
+* Link to project https://kopelson.github.io/momentJSDailyScheduler/
+
 ![main](https://user-images.githubusercontent.com/57735283/94873533-56593800-0404-11eb-8f33-494088c8fc20.gif)
 
 <p>Note the time is updated with todays date, and time blocks are colored according to the current time.</p>
