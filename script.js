@@ -33,7 +33,6 @@ function createTimeBlocks() {
         let icon = $("<i>");
         //set id attributes
         row.attr("value", i);
-        row.attr("data-index", "dataObj"+i);
         //set class attributes
         row.attr("class", "row time-block");
         hourSpan.attr("class", "hour col-2");
@@ -90,43 +89,27 @@ function updateTimeBlocks(){
         };
     });
 };
-
-function renderStoredData(){
-    //console.log($(".row").length);
-    // console.log($(".row").get(0));
-    // console.log($(".row").attr("data-index"));
-    // console.log(localStorage.length);
-    console.log($(".row").attr("data-index"));
-        // for(let i = 0; i < localStorage.length; i++){
-        //     let key = localStorage.key(i)
-        //     let data = JSON.parse(localStorage.getItem(key))
-        //     console.log(key);
-        //     console.log(data.textarea);
-            // let row = $(".row").attr("data-index");
-            // for(let j = 0; j < $(".row").length; j++){
-            //     if (row === key){
-            //         let getTextarea = $(".row").find("textarea").get(j).value;
-            //         getTextarea = data.textarea;
-            //     };
-            //     return;
-            // }
-            
-            
-           // let storedData = JSON.parse(localStorage.getItem("dataObj"+i));
-            // if(storedData === null){
-            //     return;
-            // }
-            // let getTextarea = $(".row").find("textarea").get(i).value;
-            // getTextarea = storedData.textarea;
-        // };
-        // for(let j = 0; j < $(".row").length; j++){
-        //     let getTextarea = $(".row").find("textarea").get(j).value;
-        //     let row = $("data-index");
-        //     console.log(getTextarea);
-        //     console.log(row);
-        // };
-}
-
+//This loops through the class of row and sets the textarea value = to the what is returned to getLocalStorageItem function
+function renderStoredData(){  
+    //loops through the every jquery .row selector
+    for(let j = 0; j < $(".row").length; j++){
+        //this sets the textarea value of the current row to the returned value of getLocalStorageItem function 
+        //the current iteration is passed into the getLocalStorageItem function to select the correlated local storage key
+        $("div.row").find("textarea").get(j).value = getLocalStorageItem("dataObj"+j);
+    };
+};
+//this function gets the local storage item and returns either an empty string or the stored textarea value
+function getLocalStorageItem(item){
+    //this returns the function with an empty string if the item isn't in local storage
+    if(localStorage.getItem(item) === null){
+        return "";
+    };
+    //this assigns result a JSON parsed value of the local storage item that is selected
+    let result = JSON.parse(localStorage.getItem(item));
+    //this returns the textarea data of the parsed value of result
+    return result.textarea;
+};
+//this function stores the selected textarea value into local storage and assigns the key as the dataObj + the event rows value
 function saveData(event) {
     event.preventDefault();
     //grabs the selected time-block textarea value;
@@ -137,7 +120,7 @@ function saveData(event) {
     dataObj = {
         "textarea": textarea
     };
-    //returns and stores in local storage an indexed key value and a stringify JSON object
+    //this returns the function and stores in local storage an indexed key value and a stringify JSON object
     return localStorage.setItem("dataObj"+dataObjNum, JSON.stringify(dataObj));
 };
 
