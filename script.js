@@ -7,7 +7,7 @@ $(document).ready(function() {
     //THis changes the style of each time block according to what time it is
     updateTimeBlocks();
     //fill in each time block with local storage data
-
+    renderStoredData();
     //save each hour time block data to local storage
     $("button").on("click", saveData);
 
@@ -33,6 +33,7 @@ function createTimeBlocks() {
         let icon = $("<i>");
         //set id attributes
         row.attr("value", i);
+        row.attr("data-index", "dataObj"+i);
         //set class attributes
         row.attr("class", "row time-block");
         hourSpan.attr("class", "hour col-2");
@@ -90,17 +91,53 @@ function updateTimeBlocks(){
     });
 };
 
+function renderStoredData(){
+    //console.log($(".row").length);
+    // console.log($(".row").get(0));
+    // console.log($(".row").attr("data-index"));
+    // console.log(localStorage.length);
+    console.log($(".row").attr("data-index"));
+        // for(let i = 0; i < localStorage.length; i++){
+        //     let key = localStorage.key(i)
+        //     let data = JSON.parse(localStorage.getItem(key))
+        //     console.log(key);
+        //     console.log(data.textarea);
+            // let row = $(".row").attr("data-index");
+            // for(let j = 0; j < $(".row").length; j++){
+            //     if (row === key){
+            //         let getTextarea = $(".row").find("textarea").get(j).value;
+            //         getTextarea = data.textarea;
+            //     };
+            //     return;
+            // }
+            
+            
+           // let storedData = JSON.parse(localStorage.getItem("dataObj"+i));
+            // if(storedData === null){
+            //     return;
+            // }
+            // let getTextarea = $(".row").find("textarea").get(i).value;
+            // getTextarea = storedData.textarea;
+        // };
+        // for(let j = 0; j < $(".row").length; j++){
+        //     let getTextarea = $(".row").find("textarea").get(j).value;
+        //     let row = $("data-index");
+        //     console.log(getTextarea);
+        //     console.log(row);
+        // };
+}
+
 function saveData(event) {
     event.preventDefault();
-    //console.log($(this).parent().text());
-    time = $(this).parent().text();
-    
-    textarea = $(this).parent().find($("textarea"));
-    //console.log(event.target.parentElement.children[1].children[0].value)
-    //textarea = event.target.parentElement.children[1].children[0].value;
-    //textareaIcon = event.target.parentElement.parentElement.children[1].children[0].value;
-    console.log("You clicked the button")
-    // if(event.target)
-    // let storeData = localStorage.setItem("textarea", textarea)
-}
+    //grabs the selected time-block textarea value;
+    textarea = $(this).parent().find("textarea").get(0).value;
+    //grabs value of time-block to index the dataObj 
+    dataObjNum = $(this).parent().attr("value")
+    //stores data as an object
+    dataObj = {
+        "textarea": textarea
+    };
+    //returns and stores in local storage an indexed key value and a stringify JSON object
+    return localStorage.setItem("dataObj"+dataObjNum, JSON.stringify(dataObj));
+};
 
