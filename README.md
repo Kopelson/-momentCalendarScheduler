@@ -12,6 +12,15 @@
 * [License](#license)
 
 ## Overview
+![main](https://user-images.githubusercontent.com/57735283/94873533-56593800-0404-11eb-8f33-494088c8fc20.gif)
+
+<p>Note the time is updated with todays date, and time blocks are colored according to the current time.</p>
+<p>The past is a gray color, the present is a red color, and the future is a green color.</p> 
+
+### Save the days time block
+![save](https://user-images.githubusercontent.com/57735283/94873659-a637ff00-0404-11eb-9dd4-0fb2361331b5.gif)
+
+<p>A user can enter text into anytime slot and save it to local storage. The browser will load with existing entrys that are saved to local storage.</p>
 
 ## Tools
  ### JQuery $
