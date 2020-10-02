@@ -24,7 +24,7 @@
 ### Save the days time block
 ![save](https://user-images.githubusercontent.com/57735283/94873659-a637ff00-0404-11eb-9dd4-0fb2361331b5.gif)
 
-<p>A user can enter text into anytime slot and save it to local storage. The browser will load with existing entrys that are saved to local storage.</p>
+<p>A user can enter text into anytime slot and save it to local storage. The browser will load with existing entry's that are saved to local storage.</p>
 
 ## Tools
  ### JQuery $
@@ -36,8 +36,8 @@
   .text() - Add text to element https://api.jquery.com/text/#text <br/>
   .attr(attributeName, value) - Set an attribute name and value https://api.jquery.com/attr/#attr-attributeName-value <br/>
   .append() - DOM manipulation append an element to the DOM https://api.jquery.com/append/#append-function <br/>
-  .addClass() - Adds to the class attribute and dosent delete exisiting classes https://api.jquery.com/addClass/#addClass-className <br/>
-  .find() - Searchs the descendants of the current selector https://api.jquery.com/find/#find-selector <br/>
+  .addClass() - Adds to the class attribute and doesn't delete existing classes https://api.jquery.com/addClass/#addClass-className <br/>
+  .find() - Searches the descendants of the current selector https://api.jquery.com/find/#find-selector <br/>
   .get() - Selects the index of an array https://api.jquery.com/get/#get-index <br/>
  ### Moment.js
  moment() - Get the current date and time https://momentjs.com/docs/#/parsing/now/ <br/>
@@ -51,7 +51,7 @@
  JSON.parse() - Converts a JSON string into a JavaScript object https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse <br/>
  ### Local storage - 
  localstorage.setItem() - Stores a key name and value in local storage https://developer.mozilla.org/en-US/docs/Web/API/Storage/setItem <br/>
- localstorage.getItem() - Retruns a keys value when given a key name or Null if not found https://developer.mozilla.org/en-US/docs/Web/API/Storage/getItem <br/>
+ localstorage.getItem() - Returns a keys value when given a key name or Null if not found https://developer.mozilla.org/en-US/docs/Web/API/Storage/getItem <br/>
 
 ## Credits
 Jquery - https://jquery.com/ <br/>
