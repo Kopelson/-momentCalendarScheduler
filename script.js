@@ -16,13 +16,13 @@ $(document).ready(function() {
 //Uses moment to grab todays date, format it to be Day("Monday"), Month(October) Nth(12th), and adds it to the id tag of currentDay
 function getCurrentDay() {
     let currentDay = moment().format("dddd, MMMM Do");
-    $('#currentDay').text(currentDay);
+    $("#currentDay").text(currentDay);
 }
 //creates new time blocks for the day scheduler 
 function createTimeBlocks() {
     let container = $(".container");
-    let startOfDay = moment().startOf('day');
-    let myTime = startOfDay.add(9, 'h').format("h:mma");
+    let startOfDay = moment().startOf("day");
+    let myTime = startOfDay.add(9, "h").format("h:mma");
     for(let i = 0; i < 9; i++){
         //Create new variables for each time block
         let row = $("<div>");
@@ -49,7 +49,7 @@ function createTimeBlocks() {
         row.append(textSpan);
         row.append(button);
         //change time block by 1 hour
-        startOfDay = startOfDay.add(1, 'h');
+        startOfDay = startOfDay.add(1, "h");
         myTime = startOfDay.format("h:mma");
         container.append(row);
     };
@@ -57,12 +57,12 @@ function createTimeBlocks() {
 //This function updates the time-blocks "textSpan" class to change colors based on time - past, present, future.
 function updateTimeBlocks(){
     //this assigns hourBlock all elements with the class "textSpan"
-    let hourBlock = $('.textSpan');
+    let hourBlock = $(".textSpan");
     //this assigns two variables a moment of time start of day
-    let startOfDay = moment().startOf('day');
-    let startOfDay2 = moment().startOf('day');
+    let startOfDay = moment().startOf("day");
+    let startOfDay2 = moment().startOf("day");
     //this adds 8 hours to the first moment of time
-    let time = startOfDay.add(8, 'h');
+    let time = startOfDay.add(8, "h");
     //this adds 9 hours to the first moment of time
     let time2 = startOfDay2.add(9, "h");
     //this jquery each block will check the current time and compare it to the time that is associated with each time block, then assign a new class to the current time block textSpan either past, present, or future.
